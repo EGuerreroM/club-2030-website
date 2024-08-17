@@ -1,0 +1,35 @@
+{
+  "name": "club_20_30_website",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro check && astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "lint": "prettier --write  \"**/*.{js,jsx,ts,tsx,md,mdx,astro}\" && eslint --fix \"src/**/*.{js,ts,jsx,tsx,astro}\""
+  },
+  "dependencies": {
+    "@astrojs/check": "^0.9.2",
+    "@astrojs/solid-js": "^4.4.1",
+    "@astrojs/tailwind": "^5.1.0",
+    "astro": "^4.14.2",
+    "solid-js": "^1.8.21",
+    "tailwindcss": "^3.4.10",
+    "typescript": "^5.5.4"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3.1.0",
+    "@eslint/js": "^9.9.0",
+    "@typescript-eslint/eslint-plugin": "8.1.0 ",
+    "@typescript-eslint/parser": "8.1.0",
+    "eslint": "9.9.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-astro": "1.2.3",
+    "eslint-plugin-jsx-a11y": "^6.9.0",
+    "eslint-plugin-prettier": "^5.2.1",
+    "eslint-plugin-solid": "0.14.1",
+    "prettier": "^3.3.3",
+    "prettier-plugin-astro": "0.14.1"
+  }
+}
