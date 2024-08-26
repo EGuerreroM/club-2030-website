@@ -1,5 +1,5 @@
 ---
-const a = 1;
+import MainBaner from '../components/Banner/Main/Main.astro';
 ---
 
 <html lang="en">
@@ -11,6 +11,12 @@ const a = 1;
     <title>Astro</title>
   </head>
   <body>
-    <h1>Astro</h1>
+    <MainBaner />
   </body>
 </html>
+
+<style is:global>
+  .container-wrapper {
+    @apply px-6 lg:mx-auto lg:max-w-[1080px] lg:px-16 xl:px-0;
+  }
+</style>
