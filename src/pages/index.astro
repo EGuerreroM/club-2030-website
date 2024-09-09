@@ -1,6 +1,12 @@
 ---
-import Showcase from 'components/Banner/Main/Showcase.astro';
+import Showcase from 'components/Banner/Showcase/Showcase.astro';
 import MainBaner from '../components/Banner/Main/Main.astro';
+
+import { appwrite } from '../services';
+
+const page = Number(Astro.url.searchParams.get('page')) || 1;
+
+const projectsResponse = await appwrite.getAllProjects({ page });
 ---
 
 <html lang="en">
@@ -13,14 +19,23 @@ import MainBaner from '../components/Banner/Main/Main.astro';
   </head>
   <body>
     <MainBaner />
-    <Showcase/>
+    <Showcase />
 
-   
+    <!-- <Form client:load /> -->
+
+    {
+      projectsResponse.documents.map((project) => (
+        <div>
+          <h1>{project.title}</h1>
+          {/* <p>{project.description}</p> */}
+        </div>
+      ))
+    }
+
+    <style is:global>
+      .container-wrapper {
+        @apply px-6 lg:mx-auto lg:max-w-[1080px] lg:px-16 xl:px-0;
+      }
+    </style>
   </body>
 </html>
-
-<style is:global>
-  .container-wrapper {
-    @apply px-6 lg:mx-auto lg:max-w-[1080px] lg:px-16 xl:px-0;
-  }
-</style>
