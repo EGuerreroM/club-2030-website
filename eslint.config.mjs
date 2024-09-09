@@ -25,7 +25,9 @@ export default [
     plugins: {
       prettier: prettierPlugin,
     },
-    languageOptions: {},
+    languageOptions: {
+      parser: 'typescript-eslint/parser',
+    },
     rules: {
       ...jsConfig.configs.recommended.rules,
     },
