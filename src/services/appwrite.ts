@@ -10,7 +10,7 @@ type GetAllProjects = {
   page?: number;
 };
 
-type Project = {
+ export type Project = {
   $id: string;
   $collectionId: string;
   $databaseId: string;

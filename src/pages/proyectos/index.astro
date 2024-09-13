@@ -1,0 +1,28 @@
+---
+import { PaginationComponent } from 'components/Pagination';
+import appwrite from 'services';
+import Card from '../../components/Card';
+import Layout from '../../layouts/layout.astro';
+
+const urlPage = Number(Astro.url.searchParams.get('page')) || 1;
+const page = Number.isNaN(urlPage) ? 1 : urlPage;
+const projectsPerPage = 9;
+
+const projectsResponse = await appwrite.getAllProjects({ page, perPage: projectsPerPage });
+const numberOfPages = Math.ceil(projectsResponse.total / projectsPerPage);
+---
+
+<Layout>
+  <div>
+    <div>
+      <div class="grid grid-cols-1 auto-rows-min md:grid-cols-2 lg:grid-cols-3 gap-4">
+        {projectsResponse.documents.map((project) => (
+          <Card {...project}/>
+        ))}
+    
+      </div>
+    </div>
+
+    <PaginationComponent currentPage={page} totalPages={numberOfPages} client:load />
+  </div></Layout
+>
