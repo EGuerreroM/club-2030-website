@@ -32,11 +32,11 @@ PaginationItem.displayName = 'PaginationItem';
 type PaginationLinkProps = {
   isActive?: boolean;
 } & Pick<ButtonProps, 'size'> &
-  React.ComponentProps<'button'>;
+  React.ComponentProps<'a'>;
 
 const PaginationLink = ({ className, isActive, size = 'icon', ...props }: PaginationLinkProps) => {
   return (
-    <Button
+    <a
       data-active={isActive}
       className={buttonVariants({
         variant: 'pagination',
@@ -50,21 +50,40 @@ const PaginationLink = ({ className, isActive, size = 'icon', ...props }: Pagina
 
 PaginationLink.displayName = 'PaginationLink';
 
+type PaginationButtonProps = {
+  isActive?: boolean;
+} & Pick<ButtonProps, 'size'> &
+  React.ComponentProps<'button'>;
+
+const PaginationButton = ({ className, isActive, size = 'icon', ...props }: PaginationButtonProps) => {
+  return (
+    <Button
+      data-active={isActive}
+      className={buttonVariants({
+        variant: 'pagination',
+        size,
+        className,
+      })}
+      {...props}
+    />
+  );
+};
+
 const paginationButtonStyle = tv({ base: 'gap-1 pl-2.5' });
 
-const PaginationPrevious = ({ className, ...props }: React.ComponentProps<typeof PaginationLink>) => (
-  <PaginationLink aria-label="Go to previous page" size="default" className={paginationButtonStyle({ className })} {...props}>
+const PaginationPrevious = ({ className, ...props }: React.ComponentProps<typeof PaginationButton>) => (
+  <PaginationButton aria-label="Go to previous page" size="default" className={paginationButtonStyle({ className })} {...props}>
     <ChevronLeft className="h-4 w-4" />
     <span>Anterior</span>
-  </PaginationLink>
+  </PaginationButton>
 );
 PaginationPrevious.displayName = 'PaginationPrevious';
 
-const PaginationNext = ({ className, ...props }: React.ComponentProps<typeof PaginationLink>) => (
-  <PaginationLink aria-label="Go to next page" size="default" className={paginationButtonStyle({ className })} {...props}>
+const PaginationNext = ({ className, ...props }: React.ComponentProps<typeof PaginationButton>) => (
+  <PaginationButton aria-label="Go to next page" size="default" className={paginationButtonStyle({ className })} {...props}>
     <span>Siguiente</span>
     <ChevronRight className="h-4 w-4" />
-  </PaginationLink>
+  </PaginationButton>
 );
 PaginationNext.displayName = 'PaginationNext';
 
@@ -83,11 +102,8 @@ type PaginationComponentProps = {
   currentPage: number;
 };
 
-const handlePageNavigation = (pageNumber: number) => {
-  const url = new URL(window.location.href);
-  const page = Number(url.searchParams.get('page')) || 1;
-  url.searchParams.set('page', String(pageNumber));
-  window.location.href = url.toString();
+const handlePaginationChange = (currentPage: number) => {
+  window.location.href = `/proyectos/${currentPage}`;
 };
 
 const PaginationComponent = (props: PaginationComponentProps) => {
@@ -121,22 +137,13 @@ const PaginationComponent = (props: PaginationComponentProps) => {
   return (
     <Pagination>
       <PaginationContent>
-        <PaginationPrevious
-          onClick={() => {
-            handlePageNavigation(currentPage - 1);
-          }}
-          disabled={currentPage === 1}
-        />
+        <PaginationPrevious onClick={() => handlePaginationChange(currentPage - 1)} disabled={currentPage === 1} />
         {paginationItems.map((page, index) => {
           const key = `pagination-item-${index}`;
           return (
             <PaginationItem key={key}>
               {typeof page === 'number' ? (
-                <PaginationLink
-                  isActive={page === currentPage}
-                  onClick={() => {
-                    handlePageNavigation(page);
-                  }}>
+                <PaginationLink isActive={page === currentPage} href={`/proyectos/${page}`}>
                   {page}
                 </PaginationLink>
               ) : (
@@ -145,12 +152,7 @@ const PaginationComponent = (props: PaginationComponentProps) => {
             </PaginationItem>
           );
         })}
-        <PaginationNext
-          onClick={() => {
-            handlePageNavigation(currentPage + 1);
-          }}
-          disabled={currentPage === totalPages}
-        />
+        <PaginationNext onClick={() => handlePaginationChange(currentPage + 1)} disabled={currentPage === totalPages} />
       </PaginationContent>
     </Pagination>
   );
