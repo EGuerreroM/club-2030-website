@@ -1,7 +1,6 @@
 import { Client, Databases, ID, Query } from 'appwrite';
 
-const { APPWRITE_API_ENDPOINT, APPWRITE_API_KEY, APPWRITE_DATABASE_ID, APPWRITE_PROJECT_ID, PROJECTS_COLLECTION_ID } =
-  import.meta.env;
+const { APPWRITE_API_ENDPOINT, APPWRITE_DATABASE_ID, APPWRITE_PROJECT_ID, PROJECTS_COLLECTION_ID } = import.meta.env;
 
 const appwriteClient = new Client().setEndpoint(APPWRITE_API_ENDPOINT).setProject(APPWRITE_PROJECT_ID);
 const appwriteDatabase = new Databases(appwriteClient);

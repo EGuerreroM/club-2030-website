@@ -1,7 +1,7 @@
 import { useToast } from 'hooks/useToast';
 import { Toast, ToastClose, ToastDescription, ToastProvider, ToastTitle, ToastViewport } from './Toast';
 
-export function Toaster() {
+ function Toaster() {
   const { toasts } = useToast();
 
   return (
@@ -20,3 +20,5 @@ export function Toaster() {
     </ToastProvider>
   );
 }
+
+export default Toaster

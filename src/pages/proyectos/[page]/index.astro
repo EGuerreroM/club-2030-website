@@ -1,0 +1,31 @@
+---
+import { PaginationComponent } from '../../../components/Pagination';
+import Layout from '../../../layouts/layout.astro';
+import appwrite from '../../../services';
+
+const { page } = Astro.params;
+const projectsPerPage = 9;
+
+if (page === undefined || Number.isNaN(Number(page))) {
+  return Astro.redirect('/404');
+}
+
+const currentPage = Number(page);
+
+const projectsResponse = await appwrite.getAllProjects({ page: currentPage, perPage: projectsPerPage });
+const numberOfPages = Math.ceil(projectsResponse.total / projectsPerPage);
+---
+
+<Layout>
+  <div>
+    {
+      projectsResponse.documents.map((project) => (
+        <div>
+          <h2>{project.title}</h2>
+          {/* <p>{project.description}</p> */}
+        </div>
+      ))
+    }
+    <PaginationComponent currentPage={currentPage} totalPages={numberOfPages} client:load />
+  </div>
+</Layout>
