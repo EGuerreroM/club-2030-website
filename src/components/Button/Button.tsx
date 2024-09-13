@@ -9,8 +9,11 @@ const buttonVariants = tv({
     variant: {
       filled: 'bg-brand-blue text-white hover:bg-club-blue-600 active:bg-club-blue-800',
       outlined: 'border border-brand-blue text-brand-blue hover:bg-club-blue-100  active:bg-club-blue-200',
+      pagination:
+        'bg-brand-blue text-white hover:bg-club-blue-600 active:bg-club-blue-800 data-[active=true]:border data-[active=true]:border-brand-blue data-[active=true]:text-brand-blue data-[active=true]:hover:bg-club-blue-100 data-[active=true]:active:bg-club-blue-200 data-[active=true]:bg-transparent',
     },
     size: {
+      default: 'h-11 rounded-md px-4',
       sm: 'h-9 rounded-md px-3',
       lg: 'rounded-md py-2 px-6 text-3xl font-normal',
       icon: 'h-10 w-10',
