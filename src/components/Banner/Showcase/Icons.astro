@@ -1,28 +1,36 @@
 ---
-import { CircleUserRound, Earth, HeartHandshake } from 'lucide-react';
+import { CircleUserRound, Earth, HandHeart, HeartHandshake } from 'lucide-react';
 
 interface IconsComponent {
   icons?: string;
 }
 
 const { icons } = Astro.props;
----
 
-<div class="text-white grid gap-6 lg:gap-72 sm:grid-cols-2 lg:grid-cols-3 px-4">
-  <div class="flex flex-col items-center sm:row-span-2 lg:row-span-1">
-    <HeartHandshake className={icons} />
-    <span class="mt-2 text-lg text-center">
-      Ayudando a la juventud a lograr sus metas y ser personas integradas a la comunidad
+---
+<div class="text-white grid gap-6 lg:gap-80 sm:grid-cols-2 lg:grid-cols-4 px-4">
+  <div class="flex flex-col items-center lg:items-start lg:text-left">
+    <HeartHandshake className={`text-4xl ${icons}`} />
+    <span class="mt-2 text-lg lg:text-xl">
+      Formar líderes para el servicio a la comunidad.
     </span>
   </div>
-  <div class="flex flex-col items-center">
-    <CircleUserRound className={icons} />
-    <span class="mt-2 text-lg text-center">
-      Ayudando a la juventud a lograr sus metas y ser personas integradas a la comunidad
+  <div class="flex flex-col items-center lg:items-start lg:text-left">
+    <CircleUserRound className={`text-4xl ${icons}`} />
+    <span class="mt-2 text-lg lg:text-xl">
+      Servir a la comunidad y en especial a la niñez.
     </span>
   </div>
-  <div class="flex flex-col items-center sm:col-span-2 lg:col-span-1">
-    <Earth className={icons} />
-    <span class="mt-2 text-lg text-center"> Generando un mundo mejor para la juventud </span>
+  <div class="flex flex-col items-center lg:items-start lg:text-left">
+    <HandHeart className={`text-4xl ${icons}`} />
+    <span class="mt-2 text-lg lg:text-xl">
+      Desarrollar la amistad y la confraternidad entre sus miembros.
+    </span>
+  </div>
+  <div class="flex flex-col items-center lg:items-start lg:text-left">
+    <Earth className={`text-4xl ${icons}`} />
+    <span class="mt-2 text-lg lg:text-xl">
+      Fomentar los más altos principios humanos, morales y cívicos.
+    </span>
   </div>
 </div>
