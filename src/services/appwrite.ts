@@ -10,7 +10,7 @@ type GetAllProjects = {
   page?: number;
 };
 
-type Project = {
+export type Project = {
   $id: string;
   $collectionId: string;
   $databaseId: string;
@@ -50,7 +50,6 @@ const createProject = async (project: LocalProject) => {
       id,
       project,
     );
-    console.log(createdProject);
 
     if (!createdProject) {
       throw new Error('Error creating project');
