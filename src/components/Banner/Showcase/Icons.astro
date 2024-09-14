@@ -6,31 +6,23 @@ interface IconsComponent {
 }
 
 const { icons } = Astro.props;
-
 ---
-<div class="text-white grid gap-6 lg:gap-80 sm:grid-cols-2 lg:grid-cols-4 px-4">
-  <div class="flex flex-col items-center lg:items-start lg:text-left">
+
+<div class="text-white grid gap-11 sm:grid-cols-2 px-4">
+  <div class="flex flex-col items-center w-full">
     <HeartHandshake className={`text-4xl ${icons}`} />
-    <span class="mt-2 text-lg lg:text-xl">
-      Formar líderes para el servicio a la comunidad.
-    </span>
+    <span class="mt-2 text-lg lg:text-xl"> Formar líderes para el servicio a la comunidad. </span>
   </div>
-  <div class="flex flex-col items-center lg:items-start lg:text-left">
+  <div class="flex flex-col items-center w-full">
     <CircleUserRound className={`text-4xl ${icons}`} />
-    <span class="mt-2 text-lg lg:text-xl">
-      Servir a la comunidad y en especial a la niñez.
-    </span>
+    <span class="mt-2 text-lg lg:text-xl"> Servir a la comunidad y en especial a la niñez. </span>
   </div>
-  <div class="flex flex-col items-center lg:items-start lg:text-left">
+  <div class="flex flex-col items-center w-full">
     <HandHeart className={`text-4xl ${icons}`} />
-    <span class="mt-2 text-lg lg:text-xl">
-      Desarrollar la amistad y la confraternidad entre sus miembros.
-    </span>
+    <span class="mt-2 text-lg lg:text-xl"> Desarrollar la amistad y la confraternidad entre sus miembros. </span>
   </div>
-  <div class="flex flex-col items-center lg:items-start lg:text-left">
+  <div class="flex flex-col items-center w-full">
     <Earth className={`text-4xl ${icons}`} />
-    <span class="mt-2 text-lg lg:text-xl">
-      Fomentar los más altos principios humanos, morales y cívicos.
-    </span>
+    <span class="mt-2 text-lg lg:text-xl"> Fomentar los más altos principios humanos, morales y cívicos. </span>
   </div>
 </div>

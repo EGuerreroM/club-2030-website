@@ -3,14 +3,14 @@ import * as React from 'react';
 import { type VariantProps, tv } from 'tailwind-variants';
 
 const buttonVariants = tv({
-  base: 'inline-flex gap-2 items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50',
+  base: 'inline-flex gap-2 items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-75',
 
   variants: {
     variant: {
       filled: 'bg-brand-blue text-white hover:bg-club-blue-600 active:bg-club-blue-800',
       outlined: 'border border-brand-blue text-brand-blue hover:bg-club-blue-100  active:bg-club-blue-200',
       pagination:
-        'bg-brand-blue text-white hover:bg-club-blue-600 active:bg-club-blue-800 data-[active=true]:border data-[active=true]:border-brand-blue data-[active=true]:text-brand-blue data-[active=true]:hover:bg-club-blue-100 data-[active=true]:active:bg-club-blue-200 data-[active=true]:bg-transparent',
+        'bg-transparent hover:bg-transparent text-white hover:border hover:border-white data-[active=true]:border data-[active=true]:bg-border-white',
     },
     size: {
       default: 'h-11 rounded-md px-4',
