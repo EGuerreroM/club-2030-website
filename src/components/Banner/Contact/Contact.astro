@@ -1,10 +1,9 @@
 ---
 import { buttonVariants } from 'components/Button';
-import Logo from '../../../../public/favicon.svg?raw';
 ---
 
 <section aria-label="club banner" class="w-full bg-yellow-400 relative">
-  <div class="flex flex-col gap-10 py-16 container-wrapper lg:flex-row lg:items-center lg:pl-16">
+  <div class="flex flex-col gap-10 py-16 container-wrapper lg:flex-row lg:items-center lg:justify-between lg:pl-16 lg:gap-6">
     <div class="font-inter text-center lg:text-left lg:w-1/2 lg:pr-8">
       <h1 class="text-4xl font-bold mb-4 text-brand-blue">OPORTUNIDADES PARA TI</h1>
       <h2 class="text-lg mb-8">
@@ -15,18 +14,11 @@ import Logo from '../../../../public/favicon.svg?raw';
       </h2>
       <div class="flex flex-col items-center lg:items-start">
         <a href="/proyectos/1" class={buttonVariants({ variant: 'filled' })}> DESCUBRE </a>
-
-        <div class="flex justify-center lg:hidden">
-          <div class="mt-4">
-            <Fragment set:html={Logo} />
-          </div>
-        </div>
       </div>
+      <div class="relative flex lg:w-1/2 lg:justify-center lg:items-center"></div>
     </div>
-    <div class="relative hidden lg:flex lg:w-1/2 lg:justify-center lg:items-center">
-      <div class="relative">
-        <img src="/images/banner.webp" alt="club" />
-      </div>
+    <div class="relative lg:max-w-[510px] flex-1">
+      <img src="/images/banner.webp" alt="club" />
     </div>
   </div>
 </section>
