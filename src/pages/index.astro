@@ -1,5 +1,6 @@
 ---
 import { Form } from 'components';
+import Contact from 'components/Banner/Contact/Contact.astro';
 import Showcase from 'components/Banner/Showcase/Showcase.astro';
 import { Toaster } from 'components/Toast';
 import MainBaner from '../components/Banner/Main/Main.astro';
@@ -7,17 +8,23 @@ import Layout from '../layouts/layout.astro';
 ---
 
 <Layout>
-  <MainBaner />
-  <Showcase />
+  <section id="home">
+    <MainBaner />
+  </section>
 
-  <section class="bg-yellow-400 py-10">
+  <section id="proyectos">
+    <Showcase />
+  </section>
+  <Contact />
+
+  <section id="contactanos" class="bg-yellow-400 py-10 scroll-m-24">
     <div class="flex flex-col lg:flex-row container-wrapper gap-6 justify-between">
       <div class="flex flex-col gap-2 max-w-[512px]">
-        <h2 class="text-club-blue-900 text-5xl">Proyectos de ayuda</h2>
+        <h2 class="text-club-blue-900 text-5xl">CONTACTANOS</h2>
         <p class="text-gray-600">
-          Llena el siguiente formulario y nuestro sistema agregara tu proyecto a nuestra base de datos para que pueda ser visto
-          por otras organizaciones que pueden ayudarte o puedes contactarnos escribiendo al ejemplo@mail.com o llamando al
-          8888-8888
+          Activo 20-30 Internacional, por más de 100 años sigue formando líderes para el servicio desinteresado de las
+          comunidades y en especial a la niñez de; Estados Unidos, México, El Salvador, Nicaragua, Costa Rica, Panamá, Colombia
+          y República Dominicana.
         </p>
       </div>
       <Form client:load />
@@ -25,9 +32,3 @@ import Layout from '../layouts/layout.astro';
   </section>
   <Toaster client:load />
 </Layout>
-
-<style is:global>
-  .container-wrapper {
-    @apply px-6 lg:mx-auto lg:max-w-[1080px] lg:px-16 xl:px-0;
-  }
-</style>

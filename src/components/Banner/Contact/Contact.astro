@@ -1,0 +1,32 @@
+---
+import { buttonVariants } from 'components/Button';
+import Logo from '../../../../public/favicon.svg?raw';
+---
+
+<section aria-label="club banner" class="w-full bg-yellow-400 relative">
+  <div class="flex flex-col gap-10 py-16 container-wrapper lg:flex-row lg:items-center lg:pl-16">
+    <div class="font-inter text-center lg:text-left lg:w-1/2 lg:pr-8">
+      <h1 class="text-4xl font-bold mb-4 text-brand-blue">OPORTUNIDADES PARA TI</h1>
+      <h2 class="text-lg mb-8">
+        En Activo 20-30 Internacional, te ofrecemos una oportunidad única para tu crecimiento personal y profesional. Al unirte
+        a nosotros, no solo desarrollarás habilidades de liderazgo y formarás amistades duraderas, sino que también contribuirás
+        a mejorar la vida de los niños en nuestras comunidades más necesitadas. Sé parte de una causa que transforma vidas y
+        fortalece el futuro de nuestra sociedad.
+      </h2>
+      <div class="flex flex-col items-center lg:items-start">
+        <a href="/proyectos/1" class={buttonVariants({ variant: 'filled' })}> DESCUBRE </a>
+
+        <div class="flex justify-center lg:hidden">
+          <div class="mt-4">
+            <Fragment set:html={Logo} />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="relative hidden lg:flex lg:w-1/2 lg:justify-center lg:items-center">
+      <div class="relative">
+        <img src="/images/banner.webp" alt="club" />
+      </div>
+    </div>
+  </div>
+</section>

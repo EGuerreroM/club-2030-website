@@ -1,15 +1,22 @@
 ---
+// Importación del logo
 import Logo from '../../../../public/favicon.svg?raw';
 ---
 
 <section aria-label="club banner" class="w-full bg-blue-900">
   <div class="flex flex-col gap-10 py-16 container-wrapper lg:flex-row lg:items-center">
-    <div class="text-white flex flex-col gap-4">
-      <p class="text-xl">Ayudando a la juventud</p>
+    <!-- Contenedor de texto con un ancho máximo para que no se extienda horizontalmente -->
+    <div class="text-white flex flex-col gap-4 max-w-[600px]">
+      <p class="text-xl">¿QUIÉNES SOMOS?</p>
 
       <h1 class="text-4xl xs:text-6xl lg:text-8xl font-extrabold">Conocenos</h1>
-      <p>Somos un club de jovenes lideres que buscan apoyar a la juventud de El salvador</p>
+      <p>
+        Somos un club de servicio internacional que ofrece a los jóvenes la oportunidad de desarrollo personal, amistad y
+        desarrollo de sus habilidades de liderazgo, al tiempo que sirve a la comunidad y en especial a la niñez.
+      </p>
     </div>
+
+    <!-- Contenedor del logo -->
     <div class="flex justify-center items-center [&_svg]:w-full [&_svg]:h-auto sm:[&_svg]:w-[492px] lg:[&_svg]:w-full flex-1">
       <Fragment set:html={Logo} />
     </div>

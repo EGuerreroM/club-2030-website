@@ -1,3 +1,4 @@
+<!doctype html>
 <html lang="es">
   <head>
     <meta charset="utf-8" />
@@ -5,9 +6,52 @@
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <title>Club 2030</title>
   </head>
-  <body>
-    <article>
-      <slot />
-    </article>
+  <body class="overflow-auto">
+    <nav class="bg-white p-4 pb-3 flex items-center justify-between fixed top-0 left-0 w-full z-50 shadow-md">
+      <div class="flex-shrink-0">
+        <a href="/">
+          <img src="/svg/logo.svg" class="w-[40px] h-[40px]" />
+        </a>
+      </div>
+
+      <ul class="flex space-x-4 text-black">
+        <li>
+          <a href="/" class="hover:underline">Home</a>
+        </li>
+        <li>
+          <a href="/proyectos/1" class="hover:underline">Proyectos</a>
+        </li>
+        <li>
+          <a href="/#contactanos" class="hover:underline">Contactanos</a>
+        </li>
+      </ul>
+    </nav>
+    <main>
+      <div class="pt-16">
+        <slot />
+      </div>
+    </main>
   </body>
 </html>
+
+<style is:global>
+  .container-wrapper {
+    @apply px-6 lg:mx-auto lg:max-w-[1080px] lg:px-16 xl:px-0;
+  }
+
+  *,
+  *:before,
+  *:after {
+    box-sizing: border-box;
+    position: relative;
+    min-width: 0;
+  }
+
+  body,
+  html {
+    margin: 0;
+    padding: 0;
+    min-height: 100dvh;
+    letter-spacing: normal;
+  }
+</style>
